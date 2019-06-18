@@ -10,7 +10,7 @@ import javax.swing.JPanel;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
-
+// GUI design
 public class GUI {
 	
 	static JFrame f1;
@@ -26,20 +26,22 @@ public class GUI {
     	snakeGame.setSnakeGame(snakeGame);
 	}
 	
-
+// creating the being of the window 
 	public void createGameWindow() {
-		
+		// Game of the name
 		f1 = new JFrame("Snake");
+		// Size
 		f1.setSize(675, 395);
+		// game closing method
 		f1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    	
+    		// for diagnosing an exceptions 
 		try {
 			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 		} catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
-		
+		// draw layout
 		f1.setLocationRelativeTo(null);
 		p1 = new Draw();
 		p1.setLayout(null);
@@ -61,7 +63,9 @@ public class GUI {
 			}
 
 			@Override
+			// key pressed, then game start
 			public void keyPressed(KeyEvent e) {
+				
 				if(snakeGame.isStarted()==true) {
 					
 					//Pause Menu
@@ -98,7 +102,7 @@ public class GUI {
 
 	}
 	
-
+// extend JPanel to creat a start, pause, game, gameover menu. 
 	class Draw extends JPanel {
 		
 		private static final long serialVersionUID = 1L;
@@ -185,7 +189,7 @@ public class GUI {
 			}
 		}
 	}
-	
+	// check current game inputs
 	public void checkCurrentGameInputs(KeyEvent e) {
 		if(e.getKeyCode()==38) {
 			if(snake.isSnakeDown()==false) {
@@ -219,7 +223,7 @@ public class GUI {
 				snakeGame.setPause(true);	
 		}
 	}
-	
+	// check game over input
 	public void checkGameOverInputs(KeyEvent e) {
 		//Up
 		if(e.getKeyCode()==38) {
@@ -246,7 +250,7 @@ public class GUI {
 			}
 		}
 	}
-	
+	//check start menu input
 	public void checkStartMenuInputs(KeyEvent e) {
 		//Up
 		if(e.getKeyCode()==38) {
@@ -402,7 +406,7 @@ public class GUI {
 		g2.fillRect(0, 0, 400, 10);
 		g2.fillRect(0, 350, 400, 10);
 	}
-	
+	// draw for game over menu
 	public void drawGameOver(Graphics2D g2) {
 		g2.setColor(Color.BLACK);
 		g2.fillRect(0, 0, 400, 400);
@@ -423,7 +427,7 @@ public class GUI {
 			break;
 		}	
 	}
-	
+	// draw for start menu
 	public void drawStartMenu(Graphics2D g2) {
 		g2.setColor(Color.BLACK);
 		g2.fillRect(0, 0, 400, 400);
@@ -433,20 +437,22 @@ public class GUI {
 		g2.setFont(fontMenu);
 		g2.drawString("Start game", 100, 200);
 		g2.drawString("Exit game", 100, 300);
-
+		// selection for game over menu
 		switch (snakeGame.getMenuSelection()) {
 
 		  case "Start game":
+			// location for start game
 			g2.fillOval(70, 190, 10, 10);
 			break; 
  
 		  case "Exit game":
+				// location for exit game
 				g2.fillOval(70, 290, 10, 10);
 				break; 
 		}	
 		
 	}
-
+	// recall 
 	public SnakeGame getSnakeGame() {
 		return snakeGame;
 	}
