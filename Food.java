@@ -1,3 +1,5 @@
+// creating food class
+
 public class Food {
 	
 	private int foodX = 0;												
