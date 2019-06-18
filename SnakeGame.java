@@ -108,7 +108,7 @@ public class SnakeGame implements Runnable {
 
  
 
- 
+ // game over secen
 
               public void finishGame() {                                                                                                                                                                                                     
 
@@ -193,9 +193,7 @@ public class SnakeGame implements Runnable {
                            App.gui.setFood(food);                                                                                             
 
                            App.gui.setSnake(snake);
-
                           
-
                            snake.getList().add(new Rectangle(snake.getSnakeX(), snake.getSnakeY(), 10, 10));
 
  
@@ -449,7 +447,7 @@ public class SnakeGame implements Runnable {
  
 
  
-              // recall
+           
               public void setSnake(Snake snake) {
 
                            this.snake = snake;
@@ -457,7 +455,6 @@ public class SnakeGame implements Runnable {
               }
 
  
-              // recall
               public boolean isStarted() {
 
                            return started;
@@ -465,7 +462,7 @@ public class SnakeGame implements Runnable {
               }
 
  
-              // recall
+            
               public void setStarted(boolean started) {
 
                            this.started = started;
